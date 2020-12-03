@@ -8,13 +8,10 @@ const prepareInput = (rawInput: string): Input => {
 }
 const input = prepareInput(readInput())
 
-const goA = (input: Input) => {
+const go = (input: Input) => {
   return
 }
 
-const goB = (input: Input) => {
-  return
-}
 
 /* Tests */
 
@@ -23,9 +20,7 @@ const goB = (input: Input) => {
 /* Results */
 
 console.time("Time")
-const resultA = goA(input)
-const resultB = goB(input)
+const result = go(input)
 console.timeEnd("Time")
 
-console.log("Solution to part 1:", resultA)
-console.log("Solution to part 2:", resultB)
+console.log("Solution:", result)
