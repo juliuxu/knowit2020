@@ -26,7 +26,7 @@ const getNeighbours = ([x, y]: Position, input: Input) => {
 const tick = (input: Input) => {
   return input.map((row, y) =>
     row.map((column, x) =>
-      column === 1 || sum(getNeighbours([x, y], input)) > 1 ? 1 : 0
+      column === 1 || sum(getNeighbours([x, y], input)) >= 2 ? 1 : 0
     )
   );
 };
