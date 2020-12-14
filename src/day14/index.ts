@@ -17,9 +17,12 @@ const isPrime = (n: number) => {
 };
 
 const go = (n: Input) => {
-  // Generer lenke med lengde n
+  // 1 sec vs 7s runtime when pre allocating the array
+  // const chain = [0, 1];
   const chainSet = { 0: true, 1: true };
-  const chain = [0, 1];
+  const chain = Array(n);
+  chain[0] = 0;
+  chain[1] = 1;
 
   for (let i = 2; i < n; i += 1) {
     let res = chain[i - 2] - i;
@@ -32,8 +35,6 @@ const go = (n: Input) => {
 
   console.log('chain generated', chain.length);
   console.log(chain.slice(0, 20));
-  // Filtrer til bare primtallenne
-  // Returner lengde
 
   return chain.filter(isPrime).length;
 };
