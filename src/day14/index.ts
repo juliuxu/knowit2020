@@ -29,6 +29,8 @@ const go = (n: Input) => {
     if (res < 0 || res in chainSet) {
       res = chain[i - 2] + i;
     }
+    // .push is much faster on a preallocated array than assignment
+    // chain[i] = res;
     chain.push(res);
     chainSet[res] = true;
   }
