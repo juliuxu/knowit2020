@@ -14,11 +14,12 @@ export function range(
   return [...Array(size).keys()].map((i) => i + startAt);
 }
 
-export function memo<A extends string, B>(f: (args: A) => B): (args: A) => B {
+export function memo<A, B>(f: (...args: A[]) => B): (args: A) => B {
   const d: Record<string, B> = {};
-  return (args: A) => {
-    if (!(args in d)) d[args] = f(args);
-    return d[args];
+  return (...args: A[]) => {
+    const key = JSON.stringify(args);
+    if (!(key in d)) d[key] = f(...args);
+    return d[key];
   };
 }
 
